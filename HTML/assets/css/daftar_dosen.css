@@ -1,0 +1,105 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  #appCapsule {
+    padding: 20px;
+  }
+  
+  .header-large-title-logbook {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .scrollable-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* Lecturer Styles */
+  .lecturer {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .lecturer:last-child {
+    border-bottom: none;
+  }
+  
+  .lecturer img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .lecturer-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lecturer-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .lecturer-subject {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  /* Scrollbar Styles */
+  .scrollable-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable-list::-webkit-scrollbar-track {
+    background: #f4f4f9;
+  }
+  
+  .scrollable-list::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid #f4f4f9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .lecturer img {
+        width: 50px;
+        height: 50px;
+    }
+  
+    .lecturer-name {
+        font-size: 1em;
+    }
+  
+    .lecturer-subject {
+        font-size: 0.9em;
+    }
+  }
