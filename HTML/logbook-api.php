@@ -18,19 +18,38 @@ if (isset($_SESSION['nim'], $_POST['tahapan'], $_POST['deskripsi'], $_POST['outp
     $tanggalselesai = $_POST['tanggalselesai'];
     $persentase = $_POST['persentase'];
 
-    // Prepare and bind
-    $stmt = $koneksi->prepare("INSERT INTO logbook (NIM, Tahapan, Deskripsi_Pengerjaan, Output_Pengerjaan, Tanggal_Mulai, Tanggal_Selesai, Kemajuan_Proposal) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssi", $nim, $tahapan, $deskripsi, $output, $tanggalmulai, $tanggalselesai, $persentase);
+    // Debugging statements
+    error_log("NIM: $nim, Tahapan: $tahapan, Deskripsi: $deskripsi, Output: $output, Tanggal Mulai: $tanggalmulai, Tanggal Selesai: $tanggalselesai, Persentase: $persentase");
 
-    if ($stmt->execute()) {
-        $response['success'] = true;
-        $response['message'] = 'Logbook entry added successfully';
-    } else {
+    // Check if NIM is set and not empty
+    if (empty($nim)) {
         $response['success'] = false;
-        $response['message'] = 'Failed to add logbook entry';
+        $response['message'] = 'NIM is not set in the session.';
+        echo json_encode($response);
+        exit;
     }
 
-    $stmt->close();
+    // Check database connection
+    if ($koneksi->connect_error) {
+        error_log("Database connection failed: " . $koneksi->connect_error);
+        $response['success'] = false;
+        $response['message'] = 'Database connection failed';
+    } else {
+        // Prepare and bind
+        $stmt = $koneksi->prepare("INSERT INTO logbook (NIM, Tahapan, Deskripsi_Pengerjaan, Output_Pengerjaan, Tanggal_Mulai, Tanggal_Selesai, Kemajuan_Proposal) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssi", $nim, $tahapan, $deskripsi, $output, $tanggalmulai, $tanggalselesai, $persentase);
+
+        if ($stmt->execute()) {
+            $response['success'] = true;
+            $response['message'] = 'Logbook entry added successfully';
+        } else {
+            error_log("Execute failed: " . $stmt->error);
+            $response['success'] = false;
+            $response['message'] = 'Failed to add logbook entry: ' . $stmt->error;
+        }
+
+        $stmt->close();
+    }
 } else {
     $response['success'] = false;
     $response['message'] = 'All fields are required';
