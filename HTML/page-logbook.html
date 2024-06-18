@@ -3,8 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
@@ -68,15 +67,15 @@
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <form action="/proses_logbook" method="POST">
+                    <form id="logbookForm">
                         <label for="nama">Tahapan :</label><br>
-                        <input type="tahapan" id="tahapan" name="tahapan" placeholder="Planning,Analysis,Design atau Implementasi" required><br>
+                        <input type="text" id="tahapan" name="tahapan" placeholder="Planning,Analysis,Design atau Implementasi" required><br>
                         
                         <label for="deskripsi">Deskripsi Pengerjaan:</label><br>
                         <textarea id="deskripsi" name="deskripsi" rows="4" cols="50" placeholder="Masukkan Deskrispi Pengerjaan Anda" required></textarea><br>
 
                         <label for="output">Outuput Pengerjaan:</label><br>
-                        <input type="output" id="output" name="output" placeholder="Output hasil seperti dokumenn SRS atau lainnya" required><br>
+                        <input type="text" id="output" name="output" placeholder="Output hasil seperti dokumenn SRS atau lainnya" required><br>
 
                         <label for="tanggalmulai">Tanggal Mulai:</label><br>
                         <input type="date" id="tanggalmulai" name="tanggalmulai" required><br>
@@ -285,7 +284,7 @@
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
@@ -293,8 +292,32 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
-
     <script>
+        $(document).ready(function () {
+            $('#logbookForm').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'logbook-api.php',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        console.log(response); // Debugging line to see the response
+                        if (response.success) {
+                            alert('Logbook entry added successfully!');
+                            // Optionally, clear the form fields
+                            $('#logbookForm')[0].reset();
+                        } else {
+                            alert('Failed to add logbook entry: ' + response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error: ' + status + error);
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+
         setTimeout(() => {
             notification('notification-welcome', 5000);
         }, 2000);
