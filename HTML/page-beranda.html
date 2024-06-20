@@ -226,10 +226,10 @@
                             <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged rounded">
                         </div>
                         <div class="in">
-                            <strong>Respati Hadinata</strong>
+                            <strong id="profile-name">User Name</strong>
                             <div class="text-muted">
                                 <ion-icon name="location"></ion-icon>
-                                Batam Centre
+                                <span id="profile-nim">NIM</span>
                             </div>
                         </div>
                         <a href="javascript:;" class="close-sidebar-button" data-dismiss="modal">
@@ -369,6 +369,25 @@
         setTimeout(() => {
             notification('notification-welcome', 5000);
         }, 2000);
+
+        // Fetch session data
+        $(document).ready(function () {
+            $.ajax({
+                url: 'getSessionData.php',
+                method: 'GET',
+                success: function (response) {
+                    if (response.success) {
+                        $('#profile-name').text(response.nama);
+                        $('#profile-nim').text(response.nim);
+                    } else {
+                        console.error(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
     </script>
 
 </body>
