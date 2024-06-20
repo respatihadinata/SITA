@@ -298,30 +298,40 @@
     </script>
 
 <script>
-    $(document).ready(function () {
-        $('#tugasAkhirForm').on('submit', function (e) {
-            e.preventDefault();
+$(document).ready(function () {
+    $('#tugasAkhirForm').on('submit', function (e) {
+        e.preventDefault();
 
-            var formData = new FormData(this);
+        var formData = new FormData(this);
 
-            $.ajax({
-                url: 'tugas-akhir-api.php',
-                type: 'POST',
-                data: formData,
-                success: function (data) {
-                    var response = JSON.parse(data);
-                    if (response.status === 'success') {
-                        alert('Data berhasil ditambahkan');
-                    } else {
-                        alert('Error: ' + response.message);
-                    }
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
+        $.ajax({
+            url: 'tugas-akhir-api.php',
+            type: 'POST',
+            data: formData,
+            dataType: 'json', // Ensure the response is handled as JSON
+            success: function (response) {
+                console.log('Server response:', response); // Log the response
+                if (response.status === 'success') {
+                    alert('Data berhasil ditambahkan');
+                } else {
+                    alert('Error: ' + response.message);
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('AJAX error:', textStatus, errorThrown);
+                console.log('Server response:', jqXHR.responseText); // Log the response
+                alert('An error occurred. Please try again.');
+            }
         });
     });
+});
+
+
+
+
 </script>
 
 </body>
