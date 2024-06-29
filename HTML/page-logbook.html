@@ -14,6 +14,29 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
+    <style>
+        /* CSS for Popup Message */
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .popup-message.success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .popup-message.error {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -126,6 +149,10 @@
     </div>
     <!-- * App Capsule -->
 
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message"></div>
+    <!-- * Popup Message -->
+
     <!-- Load the sidebar -->
     <div id="sidebarContainer"></div>
 
@@ -196,21 +223,33 @@
                     success: function (response) {
                         console.log(response); // Debugging line to see the response
                         if (response.success) {
-                            alert('Logbook entry added successfully!');
+                            showPopup('Logbook entry added successfully!', 'success');
                             // Optionally, clear the form fields
                             $('#logbookForm')[0].reset();
                         } else {
-                            alert('Failed to add logbook entry: ' + response.message);
+                            showPopup('Failed to add logbook entry: ' + response.message, 'error');
                         }
                     },
                     error: function (xhr, status, error) {
                         console.error('AJAX Error: ' + status + error);
                         console.log(xhr.responseText);
+                        showPopup('Failed to add logbook entry: ' + error, 'error');
                     }
                 });
             });
 
-            // Load sidebar content
+            // Function to show popup
+            function showPopup(message, type) {
+                var popup = $('#popupMessage');
+                popup.removeClass('success error').addClass(type).text(message).fadeIn();
+
+                // Hide popup after 3 seconds
+                setTimeout(function () {
+                    popup.fadeOut();
+                }, 3000);
+            }
+
+            // Load sidebar content and welcome notification
             $('#sidebarContainer').load('sidebar.html', function () {
                 // After sidebar is loaded, fetch session data
                 $.ajax({
@@ -229,13 +268,12 @@
                     }
                 });
             });
+
+            setTimeout(() => {
+                notification('notification-welcome', 5000);
+            }, 2000);
         });
-
-        setTimeout(() => {
-            notification('notification-welcome', 5000);
-        }, 2000);
     </script>
-
 </body>
 
 </html>
