@@ -13,6 +13,29 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
+    <style>
+        /* CSS for Popup Message */
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .popup-message.success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .popup-message.error {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
 </head>
 <body class="bg-white">
     <!-- loader -->
@@ -58,6 +81,10 @@
     </div>
     <!-- * App Capsule -->
 
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message"></div>
+    <!-- * Popup Message -->
+
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
     <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
@@ -84,17 +111,31 @@
                     success: function (response) {
                         console.log(response); // Debugging line to see the response
                         if (response.success) {
-                            alert('Login successful!');
-                            window.location.href = 'page-beranda.html'; // Redirect to index.html on successful login
+                            showPopup('Login successful!', 'success');
+                            setTimeout(function () {
+                                window.location.href = 'page-beranda.html'; // Redirect after showing message
+                            }, 2000);
                         } else {
-                            alert('Login failed: ' + response.message);
+                            showPopup('Login failed: ' + response.message, 'error');
                         }
                     },
                     error: function (xhr, status, error) {
                         console.error('AJAX Error: ' + status + error);
+                        showPopup('Login failed: ' + error, 'error');
                     }
                 });
             });
+
+            // Function to show popup
+            function showPopup(message, type) {
+                var popup = $('#popupMessage');
+                popup.removeClass('success error').addClass(type).text(message).fadeIn();
+
+                // Hide popup after 3 seconds
+                setTimeout(function () {
+                    popup.fadeOut();
+                }, 3000);
+            }
         });
     </script>
 </body>
