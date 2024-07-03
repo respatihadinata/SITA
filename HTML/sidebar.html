@@ -7,12 +7,11 @@
                 <!-- profile box -->
                 <div class="profileBox">
                     <div class="image-wrapper">
-                        <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged rounded">
+                        <img src="assets/img/sample/avatar/profile.png" alt="image" class="imaged rounded">
                     </div>
                     <div class="in">
                         <strong id="profile-name">User Name</strong>
                         <div class="text-muted">
-                            <ion-icon name="location"></ion-icon>
                             <span id="profile-nim">NIM</span>
                         </div>
                     </div>
@@ -98,7 +97,7 @@
                     <a href="javascript:;" class="button">
                         <ion-icon name="settings-outline"></ion-icon>
                     </a>
-                    <a href="javascript:;" class="button">
+                    <a href="javascript:;" class="button" id="logout-button">
                         <ion-icon name="log-out-outline"></ion-icon>
                     </a>
                 </div>
@@ -107,3 +106,29 @@
         </div>
     </div>
 </div>
+
+<!-- Add jQuery if not already included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- AJAX script to handle logout -->
+<script>
+    $(document).ready(function() {
+        $('#logout-button').on('click', function() {
+            $.ajax({
+                url: 'logout-api.php',
+                type: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        // Redirect to login page or show a message
+                        window.location.href = 'page-login.html';
+                    } else {
+                        alert('Logout failed: ' + response.message);
+                    }
+                },
+                error: function() {
+                    alert('An error occurred while logging out.');
+                }
+            });
+        });
+    });
+</script>

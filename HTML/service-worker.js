@@ -57,3 +57,4 @@ self.addEventListener('activate', function(event) {
   // Calling claim() to force a "controllerchange" event on navigator.serviceWorker
   event.waitUntil(self.clients.claim());
 });
+//
