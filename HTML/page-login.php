@@ -113,7 +113,7 @@
                         if (response.success) {
                             showPopup('Login successful!', 'success');
                             setTimeout(function () {
-                                window.location.href = 'page-beranda.html'; // Redirect after showing message
+                                window.location.href = 'page-beranda.php'; // Redirect after showing message
                             }, 2000);
                         } else {
                             showPopup('Login failed: ' + response.message, 'error');

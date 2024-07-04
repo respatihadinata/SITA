@@ -3,7 +3,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
@@ -11,32 +12,9 @@
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/polibatam.png" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
-    <style>
-        /* CSS for Popup Message */
-        .popup-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .popup-message.success {
-            background-color: #4caf50;
-            color: #fff;
-        }
-
-        .popup-message.error {
-            background-color: #f44336;
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -80,37 +58,111 @@
         </form>
     </div>
     <!-- * Search Component -->
-
     <!-- App Capsule -->
     <div id="appCapsule">
 
-        <div class="header-large-title-tugas-akhir">
-            <h1 class="title">TUGAS AKHIR</h1>
+        <div class="header-large-title">
+            <h2 class="title">MAHASISWA</h2>
+            <h4 class="subtitle">Sistem Informasi Layanan Tugas Akhir Jurusan Teknik Informatika.</h4>
+        </div>
+
+        <div class="section full mt-3 mb-3">
+            <div class="carousel-multiple owl-carousel owl-theme">
+
+                <div class="item">
+                    <div class="card">
+                        <img src="assets/img/sample/photo/tugas_akhir.png" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0">Tugas Akhir</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <img src="assets/img/sample/photo/daftar_sidang.png" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0">Jadwal Sidang</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <img src="assets/img/sample/photo/daftar_dosen.png" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0">Daftar Dosen</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <img src="assets/img/sample/photo/logbook.png" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0">Logbook</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <form id="tugasAkhirForm" action="tugas-akhir-api.php" method="POST" enctype="multipart/form-data">
-                        <label for="dosen">Dosen Pembimbing:</label><br>
-                        <input type="text" id="dosen" name="dosen" placeholder="Masukkan Dosen Anda" required><br>
-                        
-                        <label for="judul">Judul TA/PA:</label><br>
-                        <input type="text" id="judul" name="judul" placeholder="Masukkan Judul Anda" required><br>
-                    
-                        <label for="status">Status Proposal:</label><br>
-                        <input type="text" id="status" name="status" placeholder="Masukkan Status Proposal" required><br>
-                        
-                        <label for="file">Proposal Tugas Akhir:</label><br>
-                        <input type="file" id="file" name="file" required><br>
-                    
-                        <label for="deskripsi">Deskripsi:</label><br>
-                        <textarea id="deskripsi" name="deskripsi" rows="4" cols="50" placeholder="Masukkan Deskripsi Proposal Anda" required></textarea><br>
-                        
-                        <input type="submit" class="bg-primary" value="Submit">
-                    </form>                    
+                    <h5 class="card-title">Tugas Akhir</h5>
+                    <p class="card-text">
+                        Mobilekit comes with basic pages you may need and use in your projects easily.
+                    </p>
+                    <a href="page-tugas-akhir.php" class="btn btn-primary">
+                        <ion-icon name="albums-outline"></ion-icon>
+                        Tugas Akhir
+                    </a>
                 </div>
             </div>
         </div>
+
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Jadwal Sidang</h5>
+                    <p class="card-text">
+                        Mobilekit comes with basic pages you may need and use in your projects easily.
+                    </p>
+                    <a href="page-jadwal-sidang.php" class="btn btn-primary">
+                        <ion-icon name="layers-outline"></ion-icon>
+                        Jadwal Sidang
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Daftar Dosen</h5>
+                    <p class="card-text">
+                        Mobilekit comes with basic pages you may need and use in your projects easily.
+                    </p>
+                    <a href="page-daftar-dosen.php" class="btn btn-primary">
+                        <ion-icon name="list-outline"></ion-icon>
+                        Daftar Dosen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Logbook</h5>
+                    <p class="card-text">
+                        Mobilekit comes with basic pages you may need and use in your projects easily.
+                    </p>
+                    <a href="page-logbook.php" class="btn btn-primary">
+                        <ion-icon name="book-outline"></ion-icon>
+                        Logbook
+                    </a>
+                </div>
+            </div>
+        </div>
+
 
         <!-- app footer -->
         <div class="appFooter">
@@ -151,7 +203,7 @@
 
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
-        <a href="page-beranda.html" class="item active">
+        <a href="page-beranda.php" class="item active">
             <div class="col">
                 <ion-icon name="home-outline"></ion-icon>
             </div>
@@ -189,10 +241,6 @@
     </div>
     <!-- * welcome notification -->
 
-    <!-- Popup Message -->
-    <div id="popupMessage" class="popup-message"></div>
-    <!-- * Popup Message -->
-
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
     <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
@@ -200,8 +248,7 @@
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
@@ -209,50 +256,16 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
+
     <script>
+        setTimeout(() => {
+            notification('notification-welcome', 5000);
+        }, 2000);
+
+        // Fetch session data
         $(document).ready(function () {
-            $('#tugasAkhirForm').on('submit', function (e) {
-                e.preventDefault();
-
-                var formData = new FormData(this);
-
-                $.ajax({
-                    url: 'tugas-akhir-api.php',
-                    type: 'POST',
-                    data: formData,
-                    dataType: 'json', // Ensure the response is handled as JSON
-                    success: function (response) {
-                        console.log('Server response:', response); // Log the response
-                        if (response.status === 'success') {
-                            showPopup('Data berhasil ditambahkan', 'success');
-                            $('#tugasAkhirForm')[0].reset(); // Optionally, clear the form
-                        } else {
-                            showPopup('Error: ' + response.message, 'error');
-                        }
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.error('AJAX error:', textStatus, errorThrown);
-                        showPopup('An error occurred. Please try again.', 'error');
-                    }
-                });
-            });
-
-            // Function to show popup
-            function showPopup(message, type) {
-                var popup = $('#popupMessage');
-                popup.removeClass('success error').addClass(type).text(message).fadeIn();
-
-                // Hide popup after 3 seconds
-                setTimeout(function () {
-                    popup.fadeOut();
-                }, 3000);
-            }
-
             // Load sidebar content
-            $('#sidebarContainer').load('sidebar.html', function () {
+            $('#sidebarContainer').load('sidebar.php', function () {
                 // After sidebar is loaded, fetch session data
                 $.ajax({
                     url: 'getSessionData.php',
@@ -270,10 +283,6 @@
                     }
                 });
             });
-
-            setTimeout(() => {
-                notification('notification-welcome', 5000);
-            }, 2000);
         });
     </script>
 

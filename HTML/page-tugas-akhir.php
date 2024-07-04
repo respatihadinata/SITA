@@ -14,6 +14,29 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
+    <style>
+        /* CSS for Popup Message */
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .popup-message.success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .popup-message.error {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,85 +84,30 @@
     <!-- App Capsule -->
     <div id="appCapsule">
 
-        <div class="header-large-title-logbook">
-            <h1 class="title">DAFTAR DOSEN</h1>
+        <div class="header-large-title-tugas-akhir">
+            <h1 class="title">TUGAS AKHIR</h1>
         </div>
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <div class="scrollable-list">
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/uuf.jpeg" alt="Lecturer 1">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Uuf Brajawidagda S.T.,M.T.,Ph.d</div>
-                                <div class="lecturer-subject">Rekayasa Pengembangan perangkat lunak, Data mining.</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/sudrairawan.jpeg" alt="Lecturer 2">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Sudra Irawan, S.Pd.Si., M.Sc</div>
-                                <div class="lecturer-subject">Kepala Jurusan Teknik Informatika</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/Sitinoor.jpg" alt="Lecturer 3">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Siti Noor Chayati, S.T., M.Sc</div>
-                                <div class="lecturer-subject">Sekretaris Jurusan IF</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/hamim.jpg" alt="Lecturer 4">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Ahmad Hamim Thohari, S.S.T., M.T.</div>
-                                <div class="lecturer-subject">Kepala Program Studi Teknik Informatika</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/Sandipra.jpg" alt="Lecturer 5">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Sandi Prasetyaningsih, S.ST., M.Media</div>
-                                <div class="lecturer-subject">Kepala Program Studi Multimedia & Jaringan</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/farouki.jpg" alt="Lecturer 6">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Ir. Farouki Dinda Rassarandi, S.T., M.Eng.</div>
-                                <div class="lecturer-subject">Kepala Program Studi Teknologi Geomatika</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/selly.jpg" alt="Lecturer 7">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Selly Artaty Zega, S.ST., M.Sc</div>
-                                <div class="lecturer-subject">Kepala Program Studi Animasi</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/Hamdani.jpg" alt="Lecturer 8">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Hamdani Arif, S.Pd., M.Sc</div>
-                                <div class="lecturer-subject">Kepala Program Studi Rekayasa Keamanan Siber</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/Supar.jpg" alt="Lecturer 9">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Supardianto, M.Eng.</div>
-                                <div class="lecturer-subject">Kepala Program Studi Teknologi Rekayasa</div>
-                            </div>
-                        </div>
-                        <div class="lecturer">
-                            <img src="assets/img/sample/photo/andri.jpg" alt="Lecturer 10">
-                            <div class="lecturer-details">
-                                <div class="lecturer-name">Andri Albertha Pratama, S.Tr.Kom., M.Sn</div>
-                                <div class="lecturer-subject">Koordinator Laboratorium Jurusan</div>
-                            </div>
-                        </div>
-                        <!-- Add more lecturer entries as needed -->
-                    </div>
+                    <form id="tugasAkhirForm" action="tugas-akhir-api.php" method="POST" enctype="multipart/form-data">
+                        <label for="dosen">Dosen Pembimbing:</label><br>
+                        <input type="text" id="dosen" name="dosen" placeholder="Masukkan Dosen Anda" required><br>
+                        
+                        <label for="judul">Judul TA/PA:</label><br>
+                        <input type="text" id="judul" name="judul" placeholder="Masukkan Judul Anda" required><br>
+                    
+                        <label for="status">Status Proposal:</label><br>
+                        <input type="text" id="status" name="status" placeholder="Masukkan Status Proposal" required><br>
+                        
+                        <label for="file">Proposal Tugas Akhir:</label><br>
+                        <input type="file" id="file" name="file" required><br>
+                    
+                        <label for="deskripsi">Deskripsi:</label><br>
+                        <textarea id="deskripsi" name="deskripsi" rows="4" cols="50" placeholder="Masukkan Deskripsi Proposal Anda" required></textarea><br>
+                        
+                        <input type="submit" class="bg-primary" value="Submit">
+                    </form>                    
                 </div>
             </div>
         </div>
@@ -183,7 +151,7 @@
 
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
-        <a href="page-beranda.html" class="item active">
+        <a href="page-beranda.php" class="item active">
             <div class="col">
                 <ion-icon name="home-outline"></ion-icon>
             </div>
@@ -221,6 +189,10 @@
     </div>
     <!-- * welcome notification -->
 
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message"></div>
+    <!-- * Popup Message -->
+
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
     <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
@@ -228,7 +200,8 @@
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
@@ -238,8 +211,48 @@
 
     <script>
         $(document).ready(function () {
+            $('#tugasAkhirForm').on('submit', function (e) {
+                e.preventDefault();
+
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: 'tugas-akhir-api.php',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json', // Ensure the response is handled as JSON
+                    success: function (response) {
+                        console.log('Server response:', response); // Log the response
+                        if (response.status === 'success') {
+                            showPopup('Data berhasil ditambahkan', 'success');
+                            $('#tugasAkhirForm')[0].reset(); // Optionally, clear the form
+                        } else {
+                            showPopup('Error: ' + response.message, 'error');
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX error:', textStatus, errorThrown);
+                        showPopup('An error occurred. Please try again.', 'error');
+                    }
+                });
+            });
+
+            // Function to show popup
+            function showPopup(message, type) {
+                var popup = $('#popupMessage');
+                popup.removeClass('success error').addClass(type).text(message).fadeIn();
+
+                // Hide popup after 3 seconds
+                setTimeout(function () {
+                    popup.fadeOut();
+                }, 3000);
+            }
+
             // Load sidebar content
-            $('#sidebarContainer').load('sidebar.html', function () {
+            $('#sidebarContainer').load('sidebar.php', function () {
                 // After sidebar is loaded, fetch session data
                 $.ajax({
                     url: 'getSessionData.php',
@@ -257,11 +270,11 @@
                     }
                 });
             });
-        });
 
-        setTimeout(() => {
-            notification('notification-welcome', 5000);
-        }, 2000);
+            setTimeout(() => {
+                notification('notification-welcome', 5000);
+            }, 2000);
+        });
     </script>
 
 </body>

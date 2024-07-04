@@ -23,7 +23,7 @@
 
                 <ul class="listview flush transparent no-line image-listview mt-2">
                     <li>
-                        <a href="page-beranda.html" class="item">
+                        <a href="page-beranda.php" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="page-tugas-akhir.html" class="item">
+                        <a href="page-tugas-akhir.php" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="albums-outline"></ion-icon>
                             </div>
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="page-jadwal-sidang.html" class="item">
+                        <a href="page-jadwal-sidang.php" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="layers-outline"></ion-icon>
                             </div>
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="page-daftar-dosen.html" class="item">
+                        <a href="page-daftar-dosen.php" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="list-outline"></ion-icon>
                             </div>
@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="page-logbook.html" class="item">
+                        <a href="page-logbook.php" class="item">
                             <div class="icon-box bg-primary">
                                 <ion-icon name="book-outline"></ion-icon>
                             </div>
@@ -120,7 +120,7 @@
                 success: function(response) {
                     if (response.success) {
                         // Redirect to login page or show a message
-                        window.location.href = 'page-login.html';
+                        window.location.href = 'page-login.php';
                     } else {
                         alert('Logout failed: ' + response.message);
                     }

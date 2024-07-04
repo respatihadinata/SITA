@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
@@ -14,29 +14,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
-    <style>
-        /* CSS for Popup Message */
-        .popup-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .popup-message.success {
-            background-color: #4caf50;
-            color: #fff;
-        }
-
-        .popup-message.error {
-            background-color: #f44336;
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -85,32 +62,84 @@
     <div id="appCapsule">
 
         <div class="header-large-title-logbook">
-            <h1 class="title">LOGBOOK</h1>
+            <h1 class="title">DAFTAR DOSEN</h1>
         </div>
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <form id="logbookForm">
-                        <label for="nama">Tahapan :</label><br>
-                        <input type="text" id="tahapan" name="tahapan" placeholder="Planning, Analysis, Design atau Implementasi" required><br>
-                        
-                        <label for="deskripsi">Deskripsi Pengerjaan:</label><br>
-                        <textarea id="deskripsi" name="deskripsi" rows="4" cols="50" placeholder="Masukkan Deskrispi Pengerjaan Anda" required></textarea><br>
-
-                        <label for="output">Outuput Pengerjaan:</label><br>
-                        <input type="text" id="output" name="output" placeholder="Output hasil seperti dokumen SRS atau lainnya" required><br>
-
-                        <label for="tanggalmulai">Tanggal Mulai:</label><br>
-                        <input type="date" id="tanggalmulai" name="tanggalmulai" required><br>
-
-                        <label for="tanggalselesai">Tanggal Selesai:</label><br>
-                        <input type="date" id="tanggalselesai" name="tanggalselesai" required><br>
-                        
-                        <label for="persentase">Kemajuan Proposal:</label><br>
-                        <input type="number" id="persentase" name="persentase" min="0" max="100" placeholder="Masukkan persentase selesai 1-100" required><br>
-                        
-                        <input type="submit" class="bg-primary" value="Submit">
-                    </form>
+                    <div class="scrollable-list">
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/uuf.jpeg" alt="Lecturer 1">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Uuf Brajawidagda S.T.,M.T.,Ph.d</div>
+                                <div class="lecturer-subject">Rekayasa Pengembangan perangkat lunak, Data mining.</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/sudrairawan.jpeg" alt="Lecturer 2">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Sudra Irawan, S.Pd.Si., M.Sc</div>
+                                <div class="lecturer-subject">Kepala Jurusan Teknik Informatika</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/Sitinoor.jpg" alt="Lecturer 3">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Siti Noor Chayati, S.T., M.Sc</div>
+                                <div class="lecturer-subject">Sekretaris Jurusan IF</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/hamim.jpg" alt="Lecturer 4">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Ahmad Hamim Thohari, S.S.T., M.T.</div>
+                                <div class="lecturer-subject">Kepala Program Studi Teknik Informatika</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/Sandipra.jpg" alt="Lecturer 5">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Sandi Prasetyaningsih, S.ST., M.Media</div>
+                                <div class="lecturer-subject">Kepala Program Studi Multimedia & Jaringan</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/farouki.jpg" alt="Lecturer 6">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Ir. Farouki Dinda Rassarandi, S.T., M.Eng.</div>
+                                <div class="lecturer-subject">Kepala Program Studi Teknologi Geomatika</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/selly.jpg" alt="Lecturer 7">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Selly Artaty Zega, S.ST., M.Sc</div>
+                                <div class="lecturer-subject">Kepala Program Studi Animasi</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/Hamdani.jpg" alt="Lecturer 8">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Hamdani Arif, S.Pd., M.Sc</div>
+                                <div class="lecturer-subject">Kepala Program Studi Rekayasa Keamanan Siber</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/Supar.jpg" alt="Lecturer 9">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Supardianto, M.Eng.</div>
+                                <div class="lecturer-subject">Kepala Program Studi Teknologi Rekayasa</div>
+                            </div>
+                        </div>
+                        <div class="lecturer">
+                            <img src="assets/img/sample/photo/andri.jpg" alt="Lecturer 10">
+                            <div class="lecturer-details">
+                                <div class="lecturer-name">Andri Albertha Pratama, S.Tr.Kom., M.Sn</div>
+                                <div class="lecturer-subject">Koordinator Laboratorium Jurusan</div>
+                            </div>
+                        </div>
+                        <!-- Add more lecturer entries as needed -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,10 +177,6 @@
 
     </div>
     <!-- * App Capsule -->
-
-    <!-- Popup Message -->
-    <div id="popupMessage" class="popup-message"></div>
-    <!-- * Popup Message -->
 
     <!-- Load the sidebar -->
     <div id="sidebarContainer"></div>
@@ -203,8 +228,7 @@
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
@@ -214,43 +238,8 @@
 
     <script>
         $(document).ready(function () {
-            $('#logbookForm').on('submit', function (e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: 'logbook-api.php',
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        console.log(response); // Debugging line to see the response
-                        if (response.success) {
-                            showPopup('Logbook entry added successfully!', 'success');
-                            // Optionally, clear the form fields
-                            $('#logbookForm')[0].reset();
-                        } else {
-                            showPopup('Failed to add logbook entry: ' + response.message, 'error');
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('AJAX Error: ' + status + error);
-                        console.log(xhr.responseText);
-                        showPopup('Failed to add logbook entry: ' + error, 'error');
-                    }
-                });
-            });
-
-            // Function to show popup
-            function showPopup(message, type) {
-                var popup = $('#popupMessage');
-                popup.removeClass('success error').addClass(type).text(message).fadeIn();
-
-                // Hide popup after 3 seconds
-                setTimeout(function () {
-                    popup.fadeOut();
-                }, 3000);
-            }
-
-            // Load sidebar content and welcome notification
-            $('#sidebarContainer').load('sidebar.html', function () {
+            // Load sidebar content
+            $('#sidebarContainer').load('sidebar.php', function () {
                 // After sidebar is loaded, fetch session data
                 $.ajax({
                     url: 'getSessionData.php',
@@ -268,12 +257,13 @@
                     }
                 });
             });
-
-            setTimeout(() => {
-                notification('notification-welcome', 5000);
-            }, 2000);
         });
+
+        setTimeout(() => {
+            notification('notification-welcome', 5000);
+        }, 2000);
     </script>
+
 </body>
 
 </html>

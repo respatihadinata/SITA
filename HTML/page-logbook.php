@@ -3,8 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
@@ -12,9 +11,32 @@
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/polibatam.png" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/polibatam.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/polibatam.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
+    <style>
+        /* CSS for Popup Message */
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .popup-message.success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .popup-message.error {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -58,111 +80,40 @@
         </form>
     </div>
     <!-- * Search Component -->
+
     <!-- App Capsule -->
     <div id="appCapsule">
 
-        <div class="header-large-title">
-            <h2 class="title">MAHASISWA</h2>
-            <h4 class="subtitle">Sistem Informasi Layanan Tugas Akhir Jurusan Teknik Informatika.</h4>
-        </div>
-
-        <div class="section full mt-3 mb-3">
-            <div class="carousel-multiple owl-carousel owl-theme">
-
-                <div class="item">
-                    <div class="card">
-                        <img src="assets/img/sample/photo/tugas_akhir.png" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0">Tugas Akhir</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <img src="assets/img/sample/photo/daftar_sidang.png" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0">Jadwal Sidang</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <img src="assets/img/sample/photo/daftar_dosen.png" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0">Daftar Dosen</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card">
-                        <img src="assets/img/sample/photo/logbook.png" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0">Logbook</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="header-large-title-logbook">
+            <h1 class="title">LOGBOOK</h1>
         </div>
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Tugas Akhir</h5>
-                    <p class="card-text">
-                        Mobilekit comes with basic pages you may need and use in your projects easily.
-                    </p>
-                    <a href="page-tugas-akhir.html" class="btn btn-primary">
-                        <ion-icon name="albums-outline"></ion-icon>
-                        Tugas Akhir
-                    </a>
+                    <form id="logbookForm">
+                        <label for="nama">Tahapan :</label><br>
+                        <input type="text" id="tahapan" name="tahapan" placeholder="Planning, Analysis, Design atau Implementasi" required><br>
+                        
+                        <label for="deskripsi">Deskripsi Pengerjaan:</label><br>
+                        <textarea id="deskripsi" name="deskripsi" rows="4" cols="50" placeholder="Masukkan Deskrispi Pengerjaan Anda" required></textarea><br>
+
+                        <label for="output">Outuput Pengerjaan:</label><br>
+                        <input type="text" id="output" name="output" placeholder="Output hasil seperti dokumen SRS atau lainnya" required><br>
+
+                        <label for="tanggalmulai">Tanggal Mulai:</label><br>
+                        <input type="date" id="tanggalmulai" name="tanggalmulai" required><br>
+
+                        <label for="tanggalselesai">Tanggal Selesai:</label><br>
+                        <input type="date" id="tanggalselesai" name="tanggalselesai" required><br>
+                        
+                        <label for="persentase">Kemajuan Proposal:</label><br>
+                        <input type="number" id="persentase" name="persentase" min="0" max="100" placeholder="Masukkan persentase selesai 1-100" required><br>
+                        
+                        <input type="submit" class="bg-primary" value="Submit">
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class="section mt-3 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Jadwal Sidang</h5>
-                    <p class="card-text">
-                        Mobilekit comes with basic pages you may need and use in your projects easily.
-                    </p>
-                    <a href="page-jadwal-sidang.html" class="btn btn-primary">
-                        <ion-icon name="layers-outline"></ion-icon>
-                        Jadwal Sidang
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section mt-3 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Daftar Dosen</h5>
-                    <p class="card-text">
-                        Mobilekit comes with basic pages you may need and use in your projects easily.
-                    </p>
-                    <a href="page-daftar-dosen.html" class="btn btn-primary">
-                        <ion-icon name="list-outline"></ion-icon>
-                        Daftar Dosen
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section mt-3 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Logbook</h5>
-                    <p class="card-text">
-                        Mobilekit comes with basic pages you may need and use in your projects easily.
-                    </p>
-                    <a href="page-logbook.html" class="btn btn-primary">
-                        <ion-icon name="book-outline"></ion-icon>
-                        Logbook
-                    </a>
-                </div>
-            </div>
-        </div>
-
 
         <!-- app footer -->
         <div class="appFooter">
@@ -198,12 +149,16 @@
     </div>
     <!-- * App Capsule -->
 
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message"></div>
+    <!-- * Popup Message -->
+
     <!-- Load the sidebar -->
     <div id="sidebarContainer"></div>
 
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
-        <a href="page-beranda.html" class="item active">
+        <a href="page-beranda.php" class="item active">
             <div class="col">
                 <ion-icon name="home-outline"></ion-icon>
             </div>
@@ -248,7 +203,8 @@
     <script src="assets/js/lib/popper.min.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
@@ -256,16 +212,45 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
-
     <script>
-        setTimeout(() => {
-            notification('notification-welcome', 5000);
-        }, 2000);
-
-        // Fetch session data
         $(document).ready(function () {
-            // Load sidebar content
-            $('#sidebarContainer').load('sidebar.html', function () {
+            $('#logbookForm').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'logbook-api.php',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        console.log(response); // Debugging line to see the response
+                        if (response.success) {
+                            showPopup('Logbook entry added successfully!', 'success');
+                            // Optionally, clear the form fields
+                            $('#logbookForm')[0].reset();
+                        } else {
+                            showPopup('Failed to add logbook entry: ' + response.message, 'error');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error: ' + status + error);
+                        console.log(xhr.responseText);
+                        showPopup('Failed to add logbook entry: ' + error, 'error');
+                    }
+                });
+            });
+
+            // Function to show popup
+            function showPopup(message, type) {
+                var popup = $('#popupMessage');
+                popup.removeClass('success error').addClass(type).text(message).fadeIn();
+
+                // Hide popup after 3 seconds
+                setTimeout(function () {
+                    popup.fadeOut();
+                }, 3000);
+            }
+
+            // Load sidebar content and welcome notification
+            $('#sidebarContainer').load('sidebar.php', function () {
                 // After sidebar is loaded, fetch session data
                 $.ajax({
                     url: 'getSessionData.php',
@@ -283,9 +268,12 @@
                     }
                 });
             });
+
+            setTimeout(() => {
+                notification('notification-welcome', 5000);
+            }, 2000);
         });
     </script>
-
 </body>
 
 </html>

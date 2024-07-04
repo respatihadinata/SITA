@@ -67,7 +67,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-6">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="assets/img/si12.png" data-rjs="2" alt="jironis">
                                 </a>
                             </div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-5 d-md-block d-none">
                             <div class="urgent-call text-right">
-                               <a href="page-login.html" class="btn">Login</a>
+                               <a href="page-login.php" class="btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
                             Aplikasi Sistem Informasi Layanan Tugas akhir 
                             Jurusan Teknik Informatika Berbasis Mobile.Sebenarnya sudah ada dalam bentuk Website dan bisa di akses Tetapi Project kali ini, kami mengembangkan lagi dalam bentuk Mobile dan juga Fitur tambahan yang mungkin nanti seiring berjalannya waktu akan ada Fitur baru. Jadi bisa disimpulkan bahwasanya ini bukan merupakan Project Lanjutan, melainkan Pengembangan Project dari bentuk Website menjadi Mobile.
                         </p>
-                        <a href="page-login.html" class="btn">Get Started</a>
+                        <a href="page-login.php" class="btn">Get Started</a>
                     </div>
                     <!--End of user ineract text -->
                 </div>
