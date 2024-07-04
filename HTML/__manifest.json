@@ -1,6 +1,6 @@
 {
     "name": "SITA",
-    "start_url": "index.html",
+    "start_url": "index.php",
     "display": "standalone",
     "scope" : "/",
     "background_color": "#000000",
